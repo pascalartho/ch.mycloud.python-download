@@ -176,7 +176,7 @@ try:
   for mycloudItem in files:
     print "Start Download %s of %s" % (numberRJust(counter, numberOfFiles), numberOfFiles)
     mycloudFP = str(mycloudItem.get('Path').encode('utf-8'))
-    localFP = localFolder + mycloudFP
+    localFP = localFolder + mycloudFP[len(mycloudFolder):]
     localFP = localFP.replace("%20", ' ')
     if (checkFileExist(localFP, mycloudItem) == False):
       if (downloadFile(localFP, mycloudFP) == True):
